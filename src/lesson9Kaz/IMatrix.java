@@ -153,7 +153,7 @@ public interface IMatrix {
 	
 	/**
 	 * Вывод матрицу на консоль
-	 * @see //System.out. println()
+	 * @see System.out.println()
 	 */
 	void printToConsole ();
 }
