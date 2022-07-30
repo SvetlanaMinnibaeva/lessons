@@ -29,11 +29,11 @@ public class Main {
         System.out.println(intD);
 
         CollectionUtils e = new CollectionUtils();
-        Collection<Integer> intE = d.intersectionWithoutDuplicate(arrayListA, arrayListB);
+        Collection<Integer> intE = e.intersectionWithoutDuplicate(arrayListA, arrayListB);
         System.out.println(intE);
 
         CollectionUtils f = new CollectionUtils();
-        Collection<Integer> intF = d.difference(arrayListA, arrayListB);
+        Collection<Integer> intF = f.difference(arrayListA, arrayListB);
         System.out.println(intF);
     }
 }

@@ -23,21 +23,39 @@ public class StringUtilsLesson implements StringUtils {
 
     @Override
     public List<Integer> findWord(String text, String word) throws NullPointerException {
+        if (text == null || word == null)
+            throw new NullPointerException();
         List<Integer> result = new ArrayList<>();
         int i = 0;
         int contains = 0;
         while (contains != -1) {
             contains = text.indexOf(word, i);
-            if (contains > 0)
-                result.add(i);
-            contains = 0;
-            i++;
+            if (contains >= 0) {
+                result.add(contains);
+                i += contains + word.length();
+            } else {
+                i++;
+            }
         }
         return result;
     }
 
     @Override
-    public double[] findNumbers(String text) throws CustomException {
-        return new double[0];
+    public List<Double> findNumbers(String text) throws CustomException {
+        String[] arr = text.split(" ");
+        List<Double> list = new ArrayList<>();
+        for (String s : arr) {
+            double d;
+            try {
+                d = Double.parseDouble(s);
+            } catch (NullPointerException | NumberFormatException e) {
+                continue;
+            }
+            list.add(d);
+        }
+        if(list.isEmpty()){
+            throw new CustomException("Not found");
+        }
+        return list;
     }
 }
